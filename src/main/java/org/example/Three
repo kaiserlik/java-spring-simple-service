@@ -1,7 +1,0 @@
-select e.id, e.name, e.department_id from Employee e outer join Department d on e.department_id = d.id where e.department_id is null or e.id is null;
-
-select * from Department where id in
-    (select department_id from Employee
-    where department_id is not null
-    group by department_id having count(department_id) < 3)
-    UNION select e.id, e.name, e.department_id from Employee e outer join Department d on e.department_id = d.id where e.id is not null
